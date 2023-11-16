@@ -19,7 +19,7 @@ function Home({ isAuth }) {
     };
 
     getPosts();
-  }, [deletePost]);
+  },[postsCollectionRef]);
 
   return (
     <div className="homePage">
@@ -48,6 +48,7 @@ function Home({ isAuth }) {
           </div>
         );
       })}
+
     </div>
   );
 }

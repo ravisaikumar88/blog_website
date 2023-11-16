@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection ,serverTimestamp} from "firebase/firestore";
 import { auth, db } from "../fc";
 import { useNavigate } from "react-router-dom";
 
@@ -12,10 +12,17 @@ function CreatePost({isAuth}){
     let navigate = useNavigate();
 
     const createPost = async () => {
+        if(title.trim() === "" || postText.trim() === ""){
+            console.log("Title cant be empty");
+            return;
+        }
+
         await addDoc(postsCollectionRef, {
             title,
             postText,
+            timestamp: serverTimestamp(),
             author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
+            
         });
         navigate("/");
     };

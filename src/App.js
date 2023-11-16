@@ -5,6 +5,7 @@ import CreatePost from './pages/CreatePost';
 import { useState } from 'react';
 import Login from './pages/Login';
 
+
 // Firebase imports
 import { signOut } from 'firebase/auth';
 import { auth } from './fc';
@@ -38,6 +39,7 @@ function App() {
         <Route path='/createpost' element={<CreatePost isAuth={isAuth} />} />
         <Route path='/login' element={<Login setIsAuth={setIsAuth} />} />
       </Routes>
+      
     </Router>
   );
 }
