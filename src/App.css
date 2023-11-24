@@ -210,3 +210,9 @@ textarea {
 .postbutton:hover {
   background-color: skyblue; /* Change the background color when hovering over the button */
 }
+
+.error{
+  color: red;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+}
