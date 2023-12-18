@@ -8,8 +8,14 @@ function Home({ isAuth }) {
   const postsCollectionRef = collection(db, "posts");
 
   const deletePost = async (id) => {
-    const postDoc = doc(db, "posts", id);
-    await deleteDoc(postDoc);
+    // Display a confirmation dialog
+    const userConfirmed = window.confirm("Are you sure you want to delete this post?");
+  
+    // If the user confirms, proceed with deletion
+    if (userConfirmed) {
+      const postDoc = doc(db, "posts", id);
+      await deleteDoc(postDoc);
+    }
   };
 
   useEffect(() => {
