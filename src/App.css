@@ -19,12 +19,13 @@
     align-items: center;
     color: white;
     text-decoration: none;
+    
   }
   
   a {
     color: white;
     text-decoration: none;
-    margin: 10px;
+    margin: 10px 0;
     font-size: 25px;
   }
   
@@ -33,7 +34,7 @@
     height: calc(100vh - 80px);
     display: grid;
     place-items: center;
-    
+    max-width: 100%;
 
   }
   
@@ -161,7 +162,7 @@ textarea {
   margin: 20px;
   padding: 20px;
   border-radius: 15px;
-
+  width: 90%;
   
 }
 
@@ -201,6 +202,7 @@ textarea {
 .createpost{
   align-items: center;
   color: yellow;
+  text-align: center;
 }
 
 .postbutton{
@@ -208,10 +210,10 @@ textarea {
   font-weight: bold;
   color: white; /* This sets the text color to white for better contrast */
   border: none; /* This removes the button border */
-  padding: 10px 20px; /* Adjust padding as needed */
+  padding: 10px; /* Adjust padding as needed */
   border-radius: 5px; /* Add rounded corners for a modern look */
   cursor: pointer; /* Change the cursor to a hand when hovering over the button */
-  font-size: 16px; /* Adjust the font size as needed */
+  font-size: 14px; /* Adjust the font size as needed */
 }
 
 .postbutton:hover {
