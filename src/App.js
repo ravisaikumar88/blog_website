@@ -46,10 +46,10 @@ function App() {
         <>
           <nav>
             <Link to="/">
-              <b>WRITESCAPE</b>
+              <b className="writescape">WRITESCAPE</b>
             </Link>
             {!isAuth ? (
-              <Link to="/login">Login</Link>
+              <Link to="/login"><button className="loginbutton">LOGIN</button></Link>
             ) : (
               <>
                 <Link to="/createpost" className="createpost">
