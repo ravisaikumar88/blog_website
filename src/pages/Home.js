@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getDocs, deleteDoc, doc } from "firebase/firestore";
-import { collection } from "firebase/firestore";
+import { collection, query, orderBy } from "firebase/firestore";
 import { auth, db } from "../fc";
 
 function Home({ isAuth }) {
@@ -20,12 +20,15 @@ function Home({ isAuth }) {
 
   useEffect(() => {
     const getPosts = async () => {
-      const data = await getDocs(postsCollectionRef);
+      // Create a query with orderBy('timestamp', 'desc') to get posts in descending order based on timestamp
+      const postsQuery = query(postsCollectionRef, orderBy('timestamp', 'desc'));
+      
+      const data = await getDocs(postsQuery);
       setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
     getPosts();
-  },[postsCollectionRef]);
+  }, [postsCollectionRef]);
 
   return (
     <div className="homePage">
@@ -54,7 +57,6 @@ function Home({ isAuth }) {
           </div>
         );
       })}
-
     </div>
   );
 }
